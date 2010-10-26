@@ -141,7 +141,7 @@ endfunc
 
 function! s:GetLabel(jumpinfo)
    let msg = "Type the label >>>"
-   echo msg . a:jumpinfo['size']
+   echo msg
    let label = ""
    let i = 0
    while i < a:jumpinfo['size']
