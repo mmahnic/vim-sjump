@@ -5,15 +5,17 @@
 " License: GPL (http://www.gnu.org/copyleft/gpl.html)
 " This program comes with ABSOLUTELY NO WARRANTY.
 
-if exists("g:sjump_loaded") && g:sjump_loaded
+let g:loadedPlug = get(g:, 'loadedPlug', {})
+if get(g:loadedPlug, 'sjump', 0)
    finish
 endif
+let g:loadedPlug.sjump = -1
 
-if !exists("g:sjump_enable_keymap")
-   let g:sjump_enable_keymap = 1
-endif
+let g:plug_sjump = get(g:, 'plug_sjump', {})
+let g:plug_sjump.enable_keymap = get(g:plug_sjump, 'enable_keymap', 1)
 
-if g:sjump_enable_keymap
+if g:plug_sjump.enable_keymap
    nmap gl :call sjump#JumpToLabel()<cr>
 endif
 
+let g:loadedPlug.sjump = 1
