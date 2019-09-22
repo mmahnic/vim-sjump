@@ -5,6 +5,13 @@
 " License: GPL (http://www.gnu.org/copyleft/gpl.html)
 " This program comes with ABSOLUTELY NO WARRANTY.
 
+" Use VxLib plugin registration without loading VxLib
+let g:loadedAutoload = get(g:, 'loadedAutoload', {})
+if get(g:loadedAutoload, '#sjump', 0)
+   finish
+endif
+let g:loadedAutoload['#sjump'] = 1
+
 let s:marked_info = {}
 let s:max_signs = 99
 " TODO: find available id to start
